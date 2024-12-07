@@ -13,27 +13,26 @@ function App() {
   const { auth } = useSelector(store => store);
   const dispatch = useDispatch();
 
-  // JWT'yi Redux store'undan alıyoruz
+
   let jwt = auth.jwt;
 
   useEffect(() => {
-    // Sayfa yüklendiğinde, JWT'yi localStorage'dan alıyoruz
+   
     const storedJwt = localStorage.getItem("jwt");
-    if (storedJwt && !jwt) { // Eğer JWT var fakat Redux'da yoksa
+    if (storedJwt && !jwt) {
       jwt = storedJwt;
-      dispatch({ type: "LOGIN_SUCCESS", payload: jwt }); // Redux'a JWT'yi kaydediyoruz
+      dispatch({ type: "LOGIN_SUCCESS", payload: jwt }); 
     }
 
-    // JWT varsa, profil bilgilerini almak için çağrı yapıyoruz
     if (jwt) {
       dispatch(getProfileAction(jwt));
     }
-  }, [dispatch, jwt]);  // jwt ve dispatch'e bağlı olarak yeniden çalışacak
+  }, [dispatch, jwt]); 
 
   return (
     <div className="">
       <Routes>
-        {/* auth.user varsa HomePage'e git, yoksa Authentication sayfasına git */}
+      
 
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />    
