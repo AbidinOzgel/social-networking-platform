@@ -26,7 +26,7 @@ const style = {
 
 const PostCard = ({ item }) => {
   const [showComments, setShowComments] = useState(false);
-  const [showLikes, setShowLikes] = useState(false); // Beğenenleri gösterme durumu
+  const [showLikes, setShowLikes] = useState(false); 
   const dispatch = useDispatch();
   const handleShowComment = () => setShowComments(!showComments);
   const { post, auth } = useSelector(store => store);
@@ -44,7 +44,7 @@ const PostCard = ({ item }) => {
   };
 
   const handleShowLikes = () => {
-    setShowLikes(!showLikes); // Beğenenleri açma veya kapama
+    setShowLikes(!showLikes); 
   };
 
   console.log("PostCard'a gelen item:", item);
@@ -93,7 +93,6 @@ const PostCard = ({ item }) => {
         </div>
       </CardActions>
 
-      {/* Beğenilen kullanıcıları gösterme */}
       <div className="p-4">
         <Typography variant="body2" className="text-gray-600" onClick={handleShowLikes} style={{ cursor: 'pointer' }}>
           {item.liked?.length} Beğeni
