@@ -79,7 +79,7 @@ const CreatePostModal = ({ handleClose, open }) => {
                         <Avatar 
     src={auth.user?.profile || "/path/to/placeholder.jpg"} 
     alt="Profile Picture" 
-    sx={{ width: 56, height: 56 }} // Gerekirse boyutu ayarlayın
+    sx={{ width: 56, height: 56 }} 
 />
                             <div>
                                 <p className='font-semibold text-lg text-gray-800'>{auth.user?.firstName + " " + auth.user?.lastName}</p>
